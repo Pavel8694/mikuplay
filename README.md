@@ -73,7 +73,7 @@ Copyright (c) 2024 Meme Corp
 # EN
 <p align="center"><b>MikuPlay alpha 0.1.6 "The first sound of the future"</b></p>
 <p align="center">Source code of the bot for quick search and download of music in TG.</p>
-<p align="center">The API token must be stored in the <tt>. env </tt> file.</p>
+<p align="center">The API token must be stored in the <tt>.env</tt> file.</p>
 <p align="center">All functions in the bot are written in Russian.</p>
 
 <p align="center">
