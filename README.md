@@ -8,11 +8,11 @@
 </p>
 
 <p align="center">Создано при помощи:</p>
-<p align="center"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white"/></p>
-<p align="center"><img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54"/></p>
-<p align="center"><img src="https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white"/></p>
-<p align="center"><img src="https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white"/></p>
-<p align="center"><img src="https://img.shields.io/badge/chatGPT-74aa9c?style=for-the-badge&logo=openai&logoColor=white"/></p>
+<p align="center"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white"/> <tt>Bot API 7.10</tt></p> 
+<p align="center"><img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54"/> <tt>Aiogram 3.x</tt></p>
+<p align="center"><img src="https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white"/> <tt>Aiosqlite 0.20.0</tt></p>
+<p align="center"><img src="https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white"/> <tt>Последняя версия</tt></p>
+<p align="center"><img src="https://img.shields.io/badge/chatGPT-74aa9c?style=for-the-badge&logo=openai&logoColor=white"/> <tt>GPT-4o</tt></p>
 
 ## Информация
 <details>
@@ -77,6 +77,22 @@ Copyright (c) 2024 Meme Corp
 
 </details>
 
+## История версий
+<details>
+
+<summary>alpha 0.1.6 "Первый звук будущего"</summary>
+
+Самая первая публично выпущенная версия с базовым функционалом:
+* Inline-поиск треков;
+* Добавление аудио-файлов (вплоть до нескольких десятков или 100 штук за раз);
+* Замена аудио-файлов и их информации;
+* Редактирование сведений добавленного аудио-файла в БД (Исполнителя, название. Не меняет информацию в самом MP3 файле.);
+* Удаление трека из поисковой выдачи;
+* Добавление администраторов;
+* Разжалование администраторов.
+
+</details>
+
 # EN
 <p align="center"><b>MikuPlay alpha 0.1.6 "The first sound of the future"</b></p>
 <p align="center">Source code of the bot for quick search and download of music in TG.</p>
@@ -88,11 +104,11 @@ Copyright (c) 2024 Meme Corp
 </p>
 
 <p align="center">Created using:</p>
-<p align="center"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white"/></p>
-<p align="center"><img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54"/></p>
-<p align="center"><img src="https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white"/></p>
-<p align="center"><img src="https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white"/></p>
-<p align="center"><img src="https://img.shields.io/badge/chatGPT-74aa9c?style=for-the-badge&logo=openai&logoColor=white"/></p>
+<p align="center"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white"/> <tt>Bot API 7.10</tt></p> 
+<p align="center"><img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54"/> <tt>Aiogram 3.x</tt></p>
+<p align="center"><img src="https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white"/> <tt>Aiosqlite 0.20.0</tt></p>
+<p align="center"><img src="https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white"/> <tt>Latest version</tt></p>
+<p align="center"><img src="https://img.shields.io/badge/chatGPT-74aa9c?style=for-the-badge&logo=openai&logoColor=white"/> <tt>GPT-4o</tt></p>
 
 ## Information
 <details>
@@ -166,5 +182,21 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+</details>
+
+## Version history
+<details>
+
+<summary>alpha 0.1.6 "The first sound of the future"</summary>
+
+The very first publicly released version with basic functionality:
+* Inline-search tracks;
+* Adding audio files (up to several dozen or 100 pieces at a time);
+* Replacing audio files and their information;
+* Edit information about the added audio file in the database (Artist, name. Doesn't change the information in the MP3 file itself.);
+* Deleting a track from the search results;
+* Adding administrators;
+* Deleting administrators.
 
 </details>
