@@ -80,7 +80,7 @@ Copyright (c) 2024 Meme Corp
 ## История версий
 <details>
 
-<summary>alpha 0.1.6 "Первый звук будущего"</summary>
+<summary>alpha 0.1.6 "Первый звук будущего" (24.10.2024)</summary>
 
 Самая первая публично выпущенная версия с базовым функционалом:
 * Inline-поиск треков;
@@ -188,7 +188,7 @@ SOFTWARE.
 ## Version history
 <details>
 
-<summary>alpha 0.1.6 "The first sound of the future"</summary>
+<summary>alpha 0.1.6 "The first sound of the future" (24.10.2024)</summary>
 
 The very first publicly released version with basic functionality:
 * Inline-search tracks;
