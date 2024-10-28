@@ -7,6 +7,7 @@ from handlers.admin_handlers import admin_router
 from handlers.user_handlers import user_router
 from handlers.common_handlers import common_router
 from handlers.inline_handlers import inline_router
+from ai.run import ai_router, auto_clear_old_history, process_queue
 from middlewares import DbSessionMiddleware, AntiSpamMiddleware
 from logging.handlers import RotatingFileHandler
 import logging
@@ -42,6 +43,9 @@ console_handler.setFormatter(formatter)
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
+# Отключаем логгирование aiogram.event на уровне INFO
+logging.getLogger('aiogram.event').setLevel(logging.WARNING)
+
 # Добавляем оба обработчика к основному логгеру, если они ещё не добавлены
 if not logger.hasHandlers():
     logger.addHandler(rotating_handler)
@@ -56,6 +60,9 @@ async def main():
     dp.include_router(user_router)
     dp.include_router(common_router)
     dp.include_router(inline_router)
+    dp.include_router(ai_router)
+    asyncio.create_task(process_queue())
+    asyncio.create_task(auto_clear_old_history())
     try:
         await dp.start_polling(bot)
     except KeyboardInterrupt:
