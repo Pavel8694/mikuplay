@@ -101,9 +101,9 @@ async def handle_miku_message_internal(message: Message):
     recent_messages = " \n".join(list(message_history[user_key]["messages"])[-20:])
     # Используем initial_context из gemini.py и добавляем к нему историю сообщений и текущее сообщение
     context = (
-        f"{initial_context}\n"
+        f"Твой контекст: {initial_context}\n"
         f"Пользователь {username} пишет тебе: {user_message}\n"
-        f"Последние сообщения диалога:\n{recent_messages}\n"
+        f"Последние сообщения диалога с пользователем:\n{recent_messages}\n"
         f"Мику, пожалуйста, ответь на сообщение пользователя с учетом всей беседы и не здоровайся повторно, если это не нужно. Веди себя естественно, не как ИИ, а как человек, и запомни — ты Мику Хацунэ, а не кто-то другой. Можешь использовать смайлики и слова-паразиты."
     )
 
