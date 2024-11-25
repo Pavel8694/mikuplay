@@ -1,5 +1,5 @@
 # RU
-<p align="center"><b>MikuPlay alpha 0.1.7 "Первый текст будущего"</b></p>
+<p align="center"><b>MikuPlay alpha 0.1.7 fix 1 "Первый текст будущего"</b></p>
 <p align="center">Исходный код бота для быстрого поиска и скачивания музыки в TG с ИИ.</p>
 <p align="center">API токен должен храниться в <tt>.env</tt> файле.</p>
 
@@ -104,6 +104,16 @@ Copyright (c) 2024 Meme Corp
 ## История версий
 <details>
 
+<summary>alpha 0.1.7 fix 1 "Первый текст будущего" (25.11.2024)</summary>
+
+Первый фикс первого обновления, включающий в себя:
+* Немного изменён контекст ИИ и данные отправки запроса к Gemini API;
+* Добавлена ссылка на GitHub проекта в меню.
+
+
+</details>
+<details>
+
 <summary>alpha 0.1.7 "Первый текст будущего" (29.10.2024)</summary>
 
 Первое обновление, включающее в себя:
@@ -130,7 +140,7 @@ Copyright (c) 2024 Meme Corp
 </details>
 
 # EN
-<p align="center"><b>MikuPlay alpha 0.1.7 "The first text of the future"</b></p>
+<p align="center"><b>MikuPlay alpha 0.1.7 fix 1 "The first text of the future"</b></p>
 <p align="center">Source code of the bot for quick search and download of music in TG with AI.</p>
 <p align="center">The API token must be stored in the <tt>.env</tt> file.</p>
 <p align="center">All functions in the bot are written in Russian.</p>
@@ -246,6 +256,16 @@ SOFTWARE.
 </details>
 
 ## Version history
+<details>
+
+<summary>alpha 0.1.7 fix 1 "The first text of the future" (25.11.2024)</summary>
+
+First fix of the first update, including:
+* Slightly changed the AI context and data for sending a request to the Gemini API;
+* Added a link to the project's GitHub in the menu.
+
+
+</details>
 <details>
 
 <summary>alpha 0.1.7 "The first text of the future" (29.10.2024)</summary>
