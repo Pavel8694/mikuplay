@@ -59,14 +59,14 @@ async def show_ai_menu(callback_query: CallbackQuery, state: FSMContext):
 # Функция для очистки истории сообщений
 @ai_router.callback_query(F.data == "ai_clear")
 async def clear_message_history(callback_query: CallbackQuery, state: FSMContext):
-    logger.info("✅ Команда очищения истории сообщений с ИИ получена.")  # Проверка вызова
+    # logger.info("✅ Команда очищения истории сообщений с ИИ получена.")  # Проверка вызова
     user_id = callback_query.from_user.id
     chat_id = callback_query.message.chat.id
     user_key = f"{chat_id}_{user_id}"
     
     # Логируем для отладки
-    logger.info(f"🔍 Проверка ключа: {user_key} в message_history.")
-    logger.info(f"📋 Текущее содержимое message_history: {message_history}.")
+    # logger.info(f"🔍 Проверка ключа: {user_key} в message_history.")
+    # logger.info(f"📋 Текущее содержимое message_history: {message_history}.")
     
     # Очищаем историю сообщений пользователя, если она еще не очищена
     if user_key in message_history and not message_history[user_key]["cleared"]:
@@ -74,10 +74,10 @@ async def clear_message_history(callback_query: CallbackQuery, state: FSMContext
         message_history[user_key]["cleared"] = True
         message_timestamps.pop(user_key, None)  # Удаляем метку времени
         await callback_query.message.edit_text("🗑 *История сообщений успешно очищена.*", parse_mode="Markdown", reply_markup=get_ai_clear_keyboard)
-        logger.info(f"✅ История сообщений очищена для пользователя @{callback_query.from_user.username} ({user_id}) в чате {chat_id}")
+        logger.info(f"✅ История сообщений очищена для пользователя @{callback_query.from_user.username} ({user_id}) в чате {chat_id}.")
     else:
         await callback_query.message.edit_text("⚠️ *История сообщений уже пуста.*", parse_mode="Markdown", reply_markup=get_ai_clear_keyboard)
-        logger.info(f"⚠️ Попытка очистить пустую историю сообщений для пользователя @{callback_query.from_user.username} ({user_id}) в чате {chat_id}")
+        logger.info(f"⚠️ Попытка очистить пустую историю сообщений для пользователя @{callback_query.from_user.username} ({user_id}) в чате {chat_id}.")
 
 # Внутренний обработчик сообщения для использования в очереди
 async def handle_miku_message_internal(message: Message):
