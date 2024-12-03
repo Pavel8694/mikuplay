@@ -1,5 +1,5 @@
 # RU
-<p align="center"><b>MikuPlay alpha 0.1.7 fix 1 "Первый текст будущего"</b></p>
+<p align="center"><b>MikuPlay alpha 0.1.7 fix 2 "Первый текст будущего"</b></p>
 <p align="center">Исходный код бота для быстрого поиска и скачивания музыки в TG с ИИ.</p>
 <p align="center">API токен должен храниться в <tt>.env</tt> файле.</p>
 
@@ -104,6 +104,15 @@ Copyright (c) 2024 Meme Corp
 ## История версий
 <details>
 
+<summary>alpha 0.1.7 fix 2 "Первый текст будущего" (03.12.2024)</summary>
+
+Второй фикс первого обновления, включающий в себя:
+* Добавлено и убрано логирование в некоторых местах.
+
+
+</details>
+<details>
+
 <summary>alpha 0.1.7 fix 1 "Первый текст будущего" (25.11.2024)</summary>
 
 Первый фикс первого обновления, включающий в себя:
@@ -140,7 +149,7 @@ Copyright (c) 2024 Meme Corp
 </details>
 
 # EN
-<p align="center"><b>MikuPlay alpha 0.1.7 fix 1 "The first text of the future"</b></p>
+<p align="center"><b>MikuPlay alpha 0.1.7 fix 2 "The first text of the future"</b></p>
 <p align="center">Source code of the bot for quick search and download of music in TG with AI.</p>
 <p align="center">The API token must be stored in the <tt>.env</tt> file.</p>
 <p align="center">All functions in the bot are written in Russian.</p>
@@ -256,6 +265,15 @@ SOFTWARE.
 </details>
 
 ## Version history
+<details>
+
+<summary>alpha 0.1.7 fix 2 "The first text of the future" (03.12.2024)</summary>
+
+The second fix of the first update, which includes:
+* Added and removed logging in some places.
+
+
+</details>
 <details>
 
 <summary>alpha 0.1.7 fix 1 "The first text of the future" (25.11.2024)</summary>
