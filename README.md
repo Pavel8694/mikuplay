@@ -1,5 +1,5 @@
 # RU
-<p align="center"><b>MikuPlay alpha 0.1.7 fix 2 "Первый текст будущего"</b></p>
+<p align="center"><b>MikuPlay alpha 0.1.8 "Первый ПОИСК будущего"</b></p>
 <p align="center">Исходный код бота для быстрого поиска и скачивания музыки в TG с ИИ.</p>
 <p align="center">API токен должен храниться в <tt>.env</tt> файле.</p>
 
@@ -104,6 +104,28 @@ Copyright (c) 2024 Meme Corp
 ## История версий
 <details>
 
+<summary>alpha 0.1.8 "Первый ПОИСК будущего" (15.12.2024)</summary>
+
+Второе обновление, включающее в себя:
+* Улучшена логика добавления треков.
+* Изменена логика замены треков.
+* Добавлена проверка на тип файла (поддерживаются только mp3) при добавлении и замене треков.
+* Добавлена логика обрезки сообщения со списком полученных треков для избежания проблем с его отправкой.
+* Улучшен поиск треков через инлайн-режим.
+* Добавлен расширенный поиск треков через диалог с ботом (можно узнать айди трека из базы данных, его название и исполнителя, не открывая саму базу данных).
+* Предварительно добавлены меню магазина и профиля в главное меню.
+* Улучшено логирование.
+* Функции администраторов помещены в отдельное меню.
+* В меню администратора добавлена возможность получить ID своего профиля, текущего чата и файлов (фото, видео, музыка, голосовые сообщения, стикеры и т. д.).
+* Изменена логика получения ответов для ИИ: теперь не обязательно указывать имя при обращении к ней, можно ответить на любое сообщение бота.
+* Изменён текст отправки запроса юзера к ИИ.
+* Изменён контекст ИИ.
+* Изменено меню помощи: дисклеймер и DMCA помещены в отдельные меню в нём.
+
+
+</details>
+<details>
+
 <summary>alpha 0.1.7 fix 2 "Первый текст будущего" (03.12.2024)</summary>
 
 Второй фикс первого обновления, включающий в себя:
@@ -149,7 +171,7 @@ Copyright (c) 2024 Meme Corp
 </details>
 
 # EN
-<p align="center"><b>MikuPlay alpha 0.1.7 fix 2 "The first text of the future"</b></p>
+<p align="center"><b>MikuPlay alpha 0.1.8 "The first SEARCH of the future"</b></p>
 <p align="center">Source code of the bot for quick search and download of music in TG with AI.</p>
 <p align="center">The API token must be stored in the <tt>.env</tt> file.</p>
 <p align="center">All functions in the bot are written in Russian.</p>
@@ -265,6 +287,28 @@ SOFTWARE.
 </details>
 
 ## Version history
+<details>
+
+<summary>alpha 0.1.8 "The first SEARCH of the future" (15.12.2024)</summary>
+
+The second update, which includes:
+* Improved the logic for adding tracks.
+* Changed the logic of replacing tracks.
+* Added file type checking (only mp3 is supported) when adding and replacing tracks.
+* Added logic for cropping a message with a list of received tracks to avoid problems with sending it.
+* Improved track search via inline mode.
+* Added advanced track search via the bot dialog (you can find out the track ID from the database, its name and artist without opening the database itself).
+* Pre-added store and profile menus to the main menu.
+* Improved logging.
+* Admin functions are placed in a separate menu.
+* Added the ability to get the ID of your profile, current chat, and files (photos, videos, music, voice messages, stickers, etc.) in the admin menu.
+* Changed the logic for getting answers for AI: now you don't have to specify a name when accessing it, you can reply to any bot message.
+* Changed the text of sending a user's request to the AI.
+* The AI context has been changed.
+* Changed the help menu: disclaimer and DMCA are placed in separate menus in it.
+
+
+</details>
 <details>
 
 <summary>alpha 0.1.7 fix 2 "The first text of the future" (03.12.2024)</summary>
