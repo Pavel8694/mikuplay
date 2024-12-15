@@ -16,7 +16,7 @@ initial_context = (
 )
 
 # Словарь для хранения истории сообщений (по chat_id и user_id)
-message_history = defaultdict(lambda: deque(maxlen=20))
+message_history = defaultdict(lambda: deque(maxlen=10))
 
 # Функция для генерации содержимого с использованием Gemini Model
 async def generate_gemini_content(context, chat_id, user_id, username):
