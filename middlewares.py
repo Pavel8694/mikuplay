@@ -3,6 +3,8 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from database import SessionLocal
 from aiogram.types import Message, CallbackQuery
 from aiogram.fsm.context import FSMContext
+from aiogram.fsm.state import StatesGroup, State
+from aiogram.filters.callback_data import CallbackData
 import asyncio
 import logging
 from typing import Dict
@@ -48,4 +50,15 @@ class AntiSpamMiddleware(BaseMiddleware):
                 
         # Выполняем основной обработчик
         return await handler(event, data)
+
+# Определение CallbackData
+class SearchCallbackData(CallbackData, prefix="search"):
+    query: str
+    page: int
     
+class SearchState(StatesGroup):
+    waiting_for_query = State()
+    
+# Состояние для ожидания файла
+class FileIDState(StatesGroup):
+    waiting_for_file = State()

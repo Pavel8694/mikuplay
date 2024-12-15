@@ -3,7 +3,7 @@ from sqlalchemy.orm import sessionmaker, declarative_base
 from sqlalchemy import Column, Integer, String
 
 Base = declarative_base()
-engine = create_async_engine("sqlite+aiosqlite:///./music.db", echo=True)
+engine = create_async_engine("sqlite+aiosqlite:///./music.db", echo=False)
 SessionLocal = sessionmaker(bind=engine, class_=AsyncSession, expire_on_commit=False)
 
 class Admin(Base):

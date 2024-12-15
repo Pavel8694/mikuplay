@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 # Регулярное выражение для поиска имени "Мику" в любом регистре
 miku_pattern = re.compile(r'\bмику\b', re.IGNORECASE)
 # Словарь для хранения истории сообщений (по chat_id и user_id)
-message_history = defaultdict(lambda: {"messages": deque(maxlen=20), "cleared": False})
+message_history = defaultdict(lambda: {"messages": deque(maxlen=10), "cleared": False})
 # Словарь для хранения временных меток сообщений, используя time.monotonic()
 message_timestamps = defaultdict(time.monotonic)
 # Очередь сообщений для обработки по одному
@@ -29,16 +29,21 @@ async def process_queue():
         message_queue.task_done()
         await asyncio.sleep(0.1)  # Добавляем небольшую паузу для снижения нагрузки
 
-# Основной обработчик сообщений с фильтрацией по имени "Мику"
+# Основной обработчик сообщений с фильтрацией по имени "Мику" или если сообщение является ответом
 @ai_router.message(F.text)
 async def handle_miku_message(message: Message):
-    # Проверяем, содержится ли "Мику" в тексте сообщения
-    if miku_pattern.search(message.text):
+    bot_user = await message.bot.get_me()  # Получаем информацию о боте (его ID)
+
+    # Проверяем, содержится ли "Мику" в тексте сообщения или это ответ на сообщение от бота
+    if (
+        miku_pattern.search(message.text) or 
+        (message.reply_to_message and message.reply_to_message.from_user.id == bot_user.id)
+    ):
         if message_queue.qsize() < 100:  # Ограничиваем до 100 сообщений
             await message_queue.put(message)
         else:
             logger.warning("⚠️ Очередь сообщений переполнена, пропущено сообщение.")
-        
+
 # Задача для очистки старых сообщений через 24 часа
 async def auto_clear_old_history():
     while True:
@@ -54,7 +59,7 @@ async def auto_clear_old_history():
 @ai_router.callback_query(F.data == "ai_button")
 async def show_ai_menu(callback_query: CallbackQuery, state: FSMContext):
     logger.info(f"🧠 Пользователь @{callback_query.from_user.username} ({callback_query.from_user.id}) зашёл в меню настроек ИИ.")
-    await callback_query.message.edit_text('🧠 *Меню действий настроек ИИ:*\n🗑 _Очистить историю — очищает ваш диалог с ИИ. (Также история очищается автоматически, если вы не будете общаться с ИИ в течение более 24 часов или если бот/сервер перезапустится.)_\n\n💙 *Выберите действие:*', parse_mode="Markdown", reply_markup=get_ai_settings_keyboard)
+    await callback_query.message.edit_text('🧠 *Меню действий настроек ИИ:*\n🗑 *Очистить историю — очищает ваш диалог с ИИ.* _(Также история очищается автоматически, если вы не будете общаться с ИИ в течение более 24 часов или если бот/сервер перезапустится.)_\n\n💙 *Выберите действие:*', parse_mode="Markdown", reply_markup=get_ai_settings_keyboard)
  
 # Функция для очистки истории сообщений
 @ai_router.callback_query(F.data == "ai_clear")
@@ -83,7 +88,7 @@ async def clear_message_history(callback_query: CallbackQuery, state: FSMContext
 async def handle_miku_message_internal(message: Message):
     chat_id = message.chat.id
     user_id = message.from_user.id
-    username = message.from_user.username or f"Пользователь {user_id}"
+    username = message.from_user.username or f"Аноним ({user_id})"
     user_message = message.text.strip()
 
     # Создаем ключ для пользователя в чате (чтобы отслеживать контекст в группах)
@@ -97,14 +102,13 @@ async def handle_miku_message_internal(message: Message):
     message_history[user_key]["messages"].append(f"{username}: {user_message}")
     message_timestamps[user_key] = time.monotonic()  # Устанавливаем время последней активности
 
-    # Получаем последние сообщения (максимум 20)
-    recent_messages = " \n".join(list(message_history[user_key]["messages"])[-20:])
+    # Получаем последние сообщения (максимум 10)
+    recent_messages = " \n".join(list(message_history[user_key]["messages"])[-10:])
     # Используем initial_context из gemini.py и добавляем к нему историю сообщений и текущее сообщение
     context = (
-        f"Твой контекст: {initial_context}\n"
         f"Пользователь {username} пишет тебе: {user_message}\n"
-        f"Последние сообщения диалога с пользователем:\n{recent_messages}\n"
-        f"Мику, пожалуйста, ответь на сообщение пользователя с учетом всей беседы и не здоровайся повторно, если это не нужно. Веди себя естественно, не как ИИ, а как человек, и запомни — ты Мику Хацунэ, а не кто-то другой. Можешь использовать смайлики и слова-паразиты."
+        f"Последние сообщения диалога с ним:\n{recent_messages}\n"
+        f"Твой контекст: {initial_context}\n"
     )
 
     # Формируем запрос к модели с учетом контекста
@@ -116,7 +120,7 @@ async def handle_miku_message_internal(message: Message):
             if len(response) > 4096:
                 response = response[:4093] + "..."
             # Сохраняем ответ Мику в историю
-            message_history[user_key]["messages"].append(f"Мику: {response}")
+            message_history[user_key]["messages"].append(f"Мику, это твой ответ: {response}")
             # Отправляем ответ в формате Markdown
             try:
                 await message.reply(response, parse_mode="Markdown")
