@@ -24,4 +24,4 @@ SAFETY_SETTINGS = [
 
 
 # API ключ для Google Gemini API
-GOOGLE_GEMINI_API_KEY = 'вашключ'
+GOOGLE_GEMINI_API_KEY = 'ваш ключ'

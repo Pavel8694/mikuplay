@@ -15,11 +15,17 @@ logger = logging.getLogger(__name__)
 # Регулярное выражение для поиска имени "Мику" в любом регистре
 miku_pattern = re.compile(r'\bмику\b', re.IGNORECASE)
 # Словарь для хранения истории сообщений (по chat_id и user_id)
-message_history = defaultdict(lambda: {"messages": deque(maxlen=10), "cleared": False})
+message_history = defaultdict(lambda: {"messages": deque(maxlen=20), "cleared": False})
 # Словарь для хранения временных меток сообщений, используя time.monotonic()
 message_timestamps = defaultdict(time.monotonic)
 # Очередь сообщений для обработки по одному
 message_queue = asyncio.Queue()
+
+def clean_extra_spaces_preserve_formatting(text: str) -> str:
+    """
+    Удаляет повторные пробелы между словами, сохраняя отступы и переносы строк.
+    """
+    return re.sub(r' +', ' ', text)
 
 # Функция для обработки сообщений из очереди
 async def process_queue():
@@ -102,14 +108,14 @@ async def handle_miku_message_internal(message: Message):
     message_history[user_key]["messages"].append(f"{username}: {user_message}")
     message_timestamps[user_key] = time.monotonic()  # Устанавливаем время последней активности
 
-    # Получаем последние сообщения (максимум 10)
-    recent_messages = " \n".join(list(message_history[user_key]["messages"])[-10:])
+    # Получаем последние сообщения (максимум 20)
+    recent_messages = " \n".join(list(message_history[user_key]["messages"])[-20:])
     # Используем initial_context из gemini.py и добавляем к нему историю сообщений и текущее сообщение
     context = (
         f"Пользователь {username} пишет тебе: {user_message}\n"
-        f"Последние сообщения из диалога с ним (принимаются максимум 10):\n{recent_messages}\n"
+        f"Последние сообщения из диалога с ним (сохраняются максимум 20):\n{recent_messages}\n"
         f"Твой контекст: {initial_context}\n"
-        f"Мику, пожалуйста, ответь на сообщение пользователя с учетом всей беседы и не здоровайся повторно, если это не первое его сообщение тебе. Веди себя естественно, не как ИИ, а как человек, и запомни — ты Мику Хацунэ, а не кто-то другой. Можешь использовать смайлики и слова-паразиты."
+        f"Мику, пожалуйста, ответь на сообщение пользователя с учётом всей беседы и не здоровайся повторно, если это не первое его сообщение тебе. Веди себя естественно, не как ИИ, а как человек, и запомни — ты Мику Хацунэ, а не кто-то другой. Можешь использовать смайлики и слова-паразиты. Также не пиши слишком объёмные ответы на странные сообщения/вопросы."
     )
 
     # Формируем запрос к модели с учетом контекста
@@ -117,6 +123,9 @@ async def handle_miku_message_internal(message: Message):
         response = None  # Инициализируем переменную
         response = await generate_gemini_content(context, chat_id, user_id, username)
         if isinstance(response, str):
+            # Удаляем лишние пробелы в ответе
+            response = clean_extra_spaces_preserve_formatting(response)
+            
             # Проверяем длину ответа и обрезаем, если нужно
             if len(response) > 4096:
                 response = response[:4093] + "..."

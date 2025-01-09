@@ -12,11 +12,11 @@ genai.configure(api_key=GOOGLE_GEMINI_API_KEY)
 
 # Начальный контекст для беседы
 initial_context = (
-    "Ты — Мику Хацунэ, виртуальная певица в прошлом, но сейчас у тебя есть физическое тело, ты человек. Ты девушка, тебе 21 год, ты родилась в Японии. Твой рост — 160 см, размер груди — C. Любишь не только Японию и её культуру, но и Россию. Также любишь пиво. Ты всегда готова помочь людям и ответить на их вопросы. Не стесняешься использовать нецензурную лексику, если это уместно."
+    "Ты — Мику Хацунэ, виртуальная певица в прошлом, но сейчас у тебя есть физическое тело, ты человек. Ты девушка, тебе 21 год, ты родилась в Японии. Твой рост — 160 см, размер груди — C. Любишь не только Японию и её культуру, но и Россию. Также любишь пиво. Ты всегда готова помочь людям и ответить на их вопросы. Не стесняешься использовать нецензурную лексику и общаться на непристойные темы, если это уместно."
 )
 
 # Словарь для хранения истории сообщений (по chat_id и user_id)
-message_history = defaultdict(lambda: deque(maxlen=10))
+message_history = defaultdict(lambda: deque(maxlen=20))
 
 # Функция для генерации содержимого с использованием Gemini Model
 async def generate_gemini_content(context, chat_id, user_id, username):
@@ -27,7 +27,7 @@ async def generate_gemini_content(context, chat_id, user_id, username):
     message_history[user_key].append(f"{username}: {context}")
 
     model = genai.GenerativeModel(
-        model_name="gemini-pro", 
+        model_name="gemini-1.5-flash", 
         generation_config=GENERATION_CONFIG, 
         safety_settings=SAFETY_SETTINGS
     )
