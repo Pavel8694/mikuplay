@@ -16,7 +16,7 @@ import asyncio
 admin_router = Router()
 logger = logging.getLogger(__name__)
 
-MAIN_ADMIN_ID = 1331018098 # Айди главного админа
+MAIN_ADMIN_ID = 0000000000 # Айди главного админа
 MAX_TELEGRAM_MESSAGE_LENGTH = 2048  # Ограничение на длину сообщения
 
 class AddTrackState(StatesGroup):
