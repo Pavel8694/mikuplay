@@ -65,7 +65,20 @@ async def auto_clear_old_history():
 @ai_router.callback_query(F.data == "ai_button")
 async def show_ai_menu(callback_query: CallbackQuery, state: FSMContext):
     logger.info(f"🧠 Пользователь @{callback_query.from_user.username} ({callback_query.from_user.id}) зашёл в меню настроек ИИ.")
-    await callback_query.message.edit_text('🧠 *Меню действий настроек ИИ:*\n🗑 *Очистить историю — очищает ваш диалог с ИИ.* _(Также история очищается автоматически, если вы не будете общаться с ИИ в течение более 24 часов или если бот/сервер перезапустится.)_\n\n💙 *Выберите действие:*', parse_mode="Markdown", reply_markup=get_ai_settings_keyboard)
+    await callback_query.message.edit_text('🧠 *Меню действий настроек ИИ.*\n\n'
+                                           '💙 *Выберите действие:*',
+                                           parse_mode="Markdown",
+                                           reply_markup=get_ai_settings_keyboard
+                                           )
+    
+@ai_router.callback_query(F.data == "ai_info_button")
+async def show_ai_info_menu(callback_query: CallbackQuery, state: FSMContext):
+    logger.info(f"ℹ️ Пользователь @{callback_query.from_user.username} ({callback_query.from_user.id}) зашёл в подробности функционала меню настроек ИИ.")
+    await callback_query.message.edit_text('ℹ️ *Подробнее о действиях в настройках ИИ:*\n'
+                                           '🗑 *Очистить историю — очищает ваш диалог с ИИ.* _(Также история очищается автоматически, если вы не будете общаться с ИИ в течение более 24 часов или если бот/сервер перезапустится.)_',
+                                           parse_mode="Markdown",
+                                           reply_markup=get_ai_clear_keyboard
+                                           )
  
 # Функция для очистки истории сообщений
 @ai_router.callback_query(F.data == "ai_clear")

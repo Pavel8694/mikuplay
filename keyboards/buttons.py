@@ -19,6 +19,9 @@ get_ai_settings_keyboard = InlineKeyboardMarkup(
                 InlineKeyboardButton(text="🗑 Очистить историю", callback_data="ai_clear"),
             ],
             [
+                InlineKeyboardButton(text="ℹ️ Подробнее", callback_data="ai_info_button"),
+            ],
+            [
                 InlineKeyboardButton(text="🏠 Вернуться в главное меню", callback_data="back_to_menu"),
             ]
         ]
@@ -52,6 +55,9 @@ get_amdin_menu_keyboard = InlineKeyboardMarkup(
             [
                 InlineKeyboardButton(text="🆔 Получить ID профиля и чата", callback_data="get_ids"),
                 InlineKeyboardButton(text="📂 Получить ID файла", callback_data="get_file_id")
+            ],
+            [
+                InlineKeyboardButton(text="ℹ️ Подробнее", callback_data="admin_info_menu_button"),
             ],
             [
                 InlineKeyboardButton(text="🏠 Вернуться в главное меню", callback_data="back_to_menu"),
