@@ -35,54 +35,7 @@
 
 <summary>Необходимые либы для работы</summary>
 
-1. `aiofiles==24.1.0`
-2. `aiogram==3.13.1`
-3. `aiohappyeyeballs==2.4.3`
-4. `aiohttp==3.10.10`
-5. `aiosignal==1.3.1`
-6. `aiosqlite==0.20.0`
-7. `annotated-types==0.7.0`
-8. `attrs==24.2.0`
-9. `cachetools==5.5.0`
-10. `certifi==2024.8.30`
-11. `charset-normalizer==3.4.0`
-12. `colorama==0.4.6`
-13. `frozenlist==1.4.1`
-14. `fuzzywuzzy==0.18.0`
-15. `google-ai-generativelanguage==0.6.10`
-16. `google-api-core==2.21.0`
-17. `google-api-python-client==2.149.0`
-18. `google-auth==2.35.0`
-19. `google-auth-httplib2==0.2.0`
-20. `google-generativeai==0.8.3`
-21. `googleapis-common-protos==1.65.0`
-22. `greenlet==3.1.1`
-23. `grpcio==1.67.0`
-24. `grpcio-status==1.67.0`
-25. `httplib2==0.22.0`
-26. `idna==3.10`
-27. `Levenshtein==0.26.0`
-28. `magic-filter==1.0.12`
-29. `multidict==6.1.0`
-30. `propcache==0.2.0`
-31. `proto-plus==1.25.0`
-32. `protobuf==5.28.3`
-33. `pyasn1==0.6.1`
-34. `pyasn1_modules==0.4.1`
-35. `pydantic==2.9.2`
-36. `pydantic_core==2.23.4`
-37. `pyparsing==3.2.0`
-38. `python-dotenv==1.0.1`
-39. `python-Levenshtein==0.26.0`
-40. `RapidFuzz==3.10.0`
-41. `requests==2.32.3`
-42. `rsa==4.9`
-43. `SQLAlchemy==2.0.36`
-44. `tqdm==4.66.5`
-45. `typing_extensions==4.12.2`
-46. `uritemplate==4.1.1`
-47. `urllib3==2.2.3`
-48. `yarl==1.15.5`
+Смотрите в файле `requirements.txt`.
 
 </details>
 <details>
@@ -208,54 +161,7 @@ Copyright (c) 2024 Meme Corp
 
 <summary>Required libs for operation</summary>
 
-1. `aiofiles==24.1.0`
-2. `aiogram==3.13.1`
-3. `aiohappyeyeballs==2.4.3`
-4. `aiohttp==3.10.10`
-5. `aiosignal==1.3.1`
-6. `aiosqlite==0.20.0`
-7. `annotated-types==0.7.0`
-8. `attrs==24.2.0`
-9. `cachetools==5.5.0`
-10. `certifi==2024.8.30`
-11. `charset-normalizer==3.4.0`
-12. `colorama==0.4.6`
-13. `frozenlist==1.4.1`
-14. `fuzzywuzzy==0.18.0`
-15. `google-ai-generativelanguage==0.6.10`
-16. `google-api-core==2.21.0`
-17. `google-api-python-client==2.149.0`
-18. `google-auth==2.35.0`
-19. `google-auth-httplib2==0.2.0`
-20. `google-generativeai==0.8.3`
-21. `googleapis-common-protos==1.65.0`
-22. `greenlet==3.1.1`
-23. `grpcio==1.67.0`
-24. `grpcio-status==1.67.0`
-25. `httplib2==0.22.0`
-26. `idna==3.10`
-27. `Levenshtein==0.26.0`
-28. `magic-filter==1.0.12`
-29. `multidict==6.1.0`
-30. `propcache==0.2.0`
-31. `proto-plus==1.25.0`
-32. `protobuf==5.28.3`
-33. `pyasn1==0.6.1`
-34. `pyasn1_modules==0.4.1`
-35. `pydantic==2.9.2`
-36. `pydantic_core==2.23.4`
-37. `pyparsing==3.2.0`
-38. `python-dotenv==1.0.1`
-39. `python-Levenshtein==0.26.0`
-40. `RapidFuzz==3.10.0`
-41. `requests==2.32.3`
-42. `rsa==4.9`
-43. `SQLAlchemy==2.0.36`
-44. `tqdm==4.66.5`
-45. `typing_extensions==4.12.2`
-46. `uritemplate==4.1.1`
-47. `urllib3==2.2.3`
-48. `yarl==1.15.5`
+See in the file `requirements.txt`.
 
 </details>
 <details>
