@@ -60,8 +60,7 @@ async def show_help_menu(callback_query: CallbackQuery, state: FSMContext):
     await callback_query.message.edit_text('💙 *MikuPlayBot* `alpha 0.1.8` *"Первый ПОИСК будущего"*\n\n'
                                            '_О проекте: MikuPlay — бесплатный open-source бот с искусственным интеллектом для общения (нейросеть с личностью Мику), быстрого поиска и скачивания музыки в Telegram со своей базой данных, пополняемой вручную. Доступен inline-режим для поиска. Работает как в личных сообщениях, так и в группах._\n\n'
                                            '🧡 *Powered by Meme Corp.*\n'
-                                           '📧 *mikuplaybot@memecorp.ru*\n'
-                                           '🌐 *team.memecorp.ru*',
+                                           '📧 *mikuplaybot@gmail.com*',
                                            parse_mode="Markdown",
                                            reply_markup=get_help_menu_keyboard
                                            )
@@ -83,7 +82,7 @@ async def show_help_menu(callback_query: CallbackQuery, state: FSMContext):
 async def show_help_menu(callback_query: CallbackQuery, state: FSMContext):
     logger.info(f"©️ Пользователь @{callback_query.from_user.username} ({callback_query.from_user.id}) зашёл в меню DMCA.")
     await callback_query.message.edit_text('©️ *DMCA:*\n'
-                                           'Если вы считаете, что ваш контент не должен быть здесь, напишите нам на почту mikuplaybot@memecorp.ru с пометкой `нарушение авторских прав` или `DMCA`.',
+                                           'Если вы считаете, что ваш контент не должен быть здесь, напишите нам на почту mikuplaybot@gmail.com с пометкой `нарушение авторских прав` или `DMCA`.',
                                            parse_mode="Markdown",
                                            reply_markup=back_help_menu_keyboard
                                            )
@@ -105,7 +104,7 @@ async def start_search(callback_query: CallbackQuery, state: FSMContext):
     # Устанавливаем состояние ожидания запроса
     await state.set_state(SearchState.waiting_for_query)
     await callback_query.message.edit_text(
-        "🔍 *Введите название трека, имя исполнителя или ID для расширенного поиска.*\n\n✍️ *Пример для названия:* `Resist and Disorder`\n👤 *Пример для исполнителя:* `Rezodrone`\n🆔 *Пример для ID:* `85`",
+        "🔍 *Введите полное/частичное название трека, имя исполнителя или ID для расширенного поиска.*\n\n✍️ *Пример для названия:* `Resist and Disorder`\n👤 *Пример для исполнителя:* `Rezodrone`\n🆔 *Пример для ID:* `85`",
         parse_mode="Markdown",
         reply_markup=cancel_button,
     )
@@ -278,6 +277,16 @@ async def meow_two(message: Message):
 async def hleb(message: Message):
     await message.reply_document(document="CgACAgIAAx0Cff1e_QABBXGoZ5OC4VxdklHfPdR7NdWyLllaGzQAAmlIAALREVlLZhWEYRK2J-I2BA")
     logger.info(f"🥚 Пользователь @{message.from_user.username} ({message.from_user.id}) вызывает пасхалку по команде /hleb.")
+    
+@user_router.message(Command("dante1"))
+async def dante_one(message: Message):
+    await message.reply_document(document="CgACAgIAAx0Cff1e_QABBeTWZ65fjCZYbGfHRxfFatDrh_TvI0UAAr5vAAJ0uVlJcAy-RkS5Nrc2BA")
+    logger.info(f"🥚 Пользователь @{message.from_user.username} ({message.from_user.id}) вызывает пасхалку по команде /dante1.")
+    
+@user_router.message(Command("dante2"))
+async def dante_two(message: Message):
+    await message.reply_document(document="CgACAgQAAxkBAAJlKWe4WMRzeYpyfbds6mrFXWwmM18RAAIHBQAC0V59Uocj2rHW1Zb7NgQ")
+    logger.info(f"🥚 Пользователь @{message.from_user.username} ({message.from_user.id}) вызывает пасхалку по команде /dante2.")
 
 @user_router.message(Command("uwy"))
 async def uwy(message: Message):
